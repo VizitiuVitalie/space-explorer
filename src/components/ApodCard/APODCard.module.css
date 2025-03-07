@@ -1,0 +1,38 @@
+.card {
+    max-width: 600px;
+    margin: 2rem auto;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #fff;
+  }
+  
+  .image {
+    max-width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .content {
+    text-align: left;
+    padding: 0.5rem 0;
+  }
+  
+  .titleLink {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
