@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchAPOD } from '../../services/nasaApi';
+import { fetchAPOD } from '../../services/nasaApodApi';
 import { APODDataI } from '../../shared/apod.interface';
 import styles from './DetailsPage.module.css';
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchAPOD } from "../../services/nasaApi";
+import { fetchAPOD } from "../../services/nasaApodApi";
 import { APODDataI } from "../../shared/apod.interface";
 import APODCard from "../../components/ApodCard/APODCard";
 import styles from "./HomePage.module.css";

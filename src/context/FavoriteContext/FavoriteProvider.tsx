@@ -10,21 +10,24 @@ export const FavoritesContext = createContext<FavoritesContextType | undefined>(
   undefined
 );
 
-export const FavoritesProvider: React.FC<FavoriteProviderProps> = ({
-  children,
-}) => {
+export const FavoritesProvider: React.FC<FavoriteProviderProps> = ({ children }) => {
+
   const [favorites, setFavorites] = useState<Favorite[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favorites");
     if (storedFavorites) {
       setFavorites(JSON.parse(storedFavorites));
     }
+    setIsLoaded(true);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+    if (isLoaded) {
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  }, [favorites, isLoaded]);
 
   const addFavorite = (favorite: Favorite) => {
     setFavorites((prev) => [...prev, favorite]);
