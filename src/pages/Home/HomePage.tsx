@@ -1,37 +1,76 @@
-import React, { useState, useEffect } from "react";
-import { fetchAPOD } from "../../services/nasaApodApi";
-import { APODDataI } from "../../shared/apod.interface";
-import APODCard from "../../components/ApodCard/APODCard";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import styles from "./HomePage.module.css";
 
 const HomePage: React.FC = () => {
-  const [apodData, setApodData] = useState<APODDataI | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const loadAPOD = async () => {
-      try {
-        const response = await fetchAPOD();
-        setApodData(response);
-      } catch (err) {
-        setError("Error while fetching data from NASA API");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadAPOD();
-  }, []);
-
-  if (loading) return <p>Fetching...</p>;
-  if (error) return <p>{error}</p>;
-  if (!apodData) return null;
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
 
   return (
     <div className={styles.homePage}>
-      <h1>Astronomy Picture of the Day</h1>
-      <APODCard data={apodData} />
+      <header className={styles.header}>
+        <motion.h1 
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Embark on a Cosmic Adventure
+        </motion.h1>
+        <motion.h2 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          Explore the Universe
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          Step beyond the ordinary and experience the wonders of the cosmos. Discover breathtaking views and unforgettable moments among the stars.
+        </motion.p>
+      </header>
+      <motion.button
+        className={styles.exploreButton}
+        whileHover={{ scale: 1.1, rotate: 2 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={toggleMenu}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+      >
+        Begin Your Journey
+      </motion.button>
+      {menuOpen && (
+        <motion.div
+          className={styles.menu}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ul>
+            <li>
+              <motion.a whileHover={{ scale: 1.1 }} href="/apod">
+                Astronomy Picture of the Day
+              </motion.a>
+            </li>
+            <li>
+              <motion.a whileHover={{ scale: 1.1 }} href="/mars-rover">
+                Mars Rover Photos
+              </motion.a>
+            </li>
+            <li>
+              <motion.a whileHover={{ scale: 1.1 }} href="/favorites">
+                Favorites
+              </motion.a>
+            </li>
+          </ul>
+        </motion.div>
+      )}
     </div>
   );
 };

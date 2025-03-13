@@ -19,11 +19,19 @@ export interface MarsRoverPhoto {
 
 export const fetchMarsRoverPhotos = async (
   rover: string,
-  sol: number,
-  camera?: string
+  solOrEarth: number | string, // can be number for sol or string for earth date
+  searchMode: "sol" | "earth",
+  camera?: string,
+  page?: number
 ): Promise<MarsRoverPhoto[]> => {
   try {
-    let url = `${MARS_ROVER_BASE_URL}/rovers/${rover}/photos?sol=${sol}&api_key=${NASA_API_KEY}&t=${Date.now()}`;
+    const timestamp = Date.now();
+    let url = "";
+    if (searchMode === "sol") {
+      url = `${MARS_ROVER_BASE_URL}/rovers/${rover}/photos?sol=${solOrEarth}&api_key=${NASA_API_KEY}&t=${timestamp}`;
+    } else {
+      url = `${MARS_ROVER_BASE_URL}/rovers/${rover}/photos?earth_date=${solOrEarth}&api_key=${NASA_API_KEY}&t=${timestamp}`;
+    }
     if (camera) {
       url += `&camera=${camera}`;
     }
@@ -47,6 +55,20 @@ export const fetchMarsRoverPhotos = async (
     return data.photos;
   } catch (error) {
     console.error("fetchMarsRoverPhotos error:", error);
+    throw error;
+  }
+};
+
+export const fetchMaxSol = async (rover: string): Promise<number> => {
+  try {
+    const response = await fetch(
+      `${MARS_ROVER_BASE_URL}/manifests/${rover}?api_key=${NASA_API_KEY}`
+    );
+    if (!response.ok) throw new Error("Failed to fetch max sol");
+    const data = await response.json();
+    return data.photo_manifest.max_sol;
+  } catch (error) {
+    console.error("fetchMaxSol error:", error);
     throw error;
   }
 };

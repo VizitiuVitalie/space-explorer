@@ -11,3 +11,12 @@ export const fetchAPOD = async (date?: string): Promise<APODDataI> => {
   }
   return response.json();
 };
+
+export const fetchAPODByDate = async (date: string): Promise<APODDataI> => {
+  const url = `${APOD_BASE_URL}?api_key=${NASA_API_KEY}&date=${date}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Error while fetching data from NASA API');
+  }
+  return response.json();
+};

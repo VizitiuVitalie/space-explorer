@@ -1,13 +1,132 @@
 .header {
-    background-color: #007bff;
-    color: white;
-    padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.23);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.logo img {
+  max-width: 50px;
+}
+
+.nav {
+  display: none;
+}
+
+.nav.open {
+  display: block;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 50px);
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+  z-index: 999;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* Добавим фон и небольшую прозрачность для мобильного меню */
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.navList li {
+  margin: 15px 0;
+}
+
+.navList a {
+  color: #ffffff; /* делаем текст белым для лучшего контраста */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.navList a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.navList a.active {
+  border-bottom: 4px solid white;
+  padding-bottom: 7px;
+}
+
+.menu {
+  display: block;
+}
+
+.menuButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.8));
+}
+
+@media (min-width: 866px) {
+  .menu {
+    display: none;
   }
-  
+  .nav {
+    display: block;
+  }
   .navList {
-    display: flex;
-    list-style: none;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-  }  
+    flex-direction: row;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: auto;
+    justify-content: center;
+    background: transparent; /* десктопное меню без фона */
+  }
+  .navList li {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 990px) {
+  .navList a {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navList {
+    flex-direction: column;
+    width: calc(100vw - 50px);
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    transform: translateX(-50%);
+  }
+  .navList li {
+    margin: 10px 0;
+  }
+  .navList a {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+  }
+}

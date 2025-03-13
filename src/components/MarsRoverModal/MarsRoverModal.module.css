@@ -1,0 +1,35 @@
+.modal {
+    position: fixed; /* Фиксированное позиционирование относительно окна браузера */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Полная ширина экрана */
+    height: 100vh; /* Полная высота экрана */
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    display: flex; /* Flex-контейнер для центрирования содержимого */
+    justify-content: center; /* Центр по горизонтали */
+    align-items: center; /* Центр по вертикали */
+    z-index: 3000; /* Достаточно высокий, чтобы перекрывать все остальные элементы */
+  }
+  
+  .modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 3001; /* Увеличиваем z-index, чтобы кнопка была выше модального окна */
+  }
+  
+  .closeButton:hover {
+    background: #ff1a1a;
+  }
