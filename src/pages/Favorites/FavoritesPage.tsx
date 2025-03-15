@@ -14,7 +14,7 @@ const FavoritesPage: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <h1>Favorites</h1>
+      <h1 className={styles.favoritesTitle}>Favorites</h1>
       {favorites.length === 0 ? (
         <p>empty for now...</p>
       ) : (

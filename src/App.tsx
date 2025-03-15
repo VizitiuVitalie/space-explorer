@@ -5,14 +5,14 @@ import HomePage from "./pages/Home/HomePage";
 import APODPage from "./pages/APOD/APODPage";
 import FavoritesPage from "./pages/Favorites/FavoritesPage";
 import MarsRoverPage from "./pages/MarsRover/MarsRoverPage";
-import styles from "./App.module.css"; // Импортируем стили
+import styles from "./App.module.css";
 import DetailsPage from "./pages/Details/DetailsPage";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Header />
-      <div className={styles.content}> {/* Добавляем класс content */}
+      <div className={styles.content}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/apod" element={<APODPage />} />

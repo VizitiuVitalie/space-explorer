@@ -9,6 +9,11 @@
   backdrop-filter: blur(10px);
 }
 
+.favoritesTitle {
+  margin-top: 80px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;

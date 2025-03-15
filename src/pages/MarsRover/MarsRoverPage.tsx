@@ -130,7 +130,7 @@ const MarsRoverPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Photos from rover Curiosity</h1>
+      <h1 className={styles.marsRoverTitle}>Photos from rover Curiosity</h1>
       <div className={styles.filters}>
         <label>
           Search Mode:

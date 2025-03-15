@@ -36,12 +36,10 @@ const HomePage: React.FC = () => {
       </header>
       <motion.button
         className={styles.exploreButton}
-        whileHover={{ scale: 1.1, rotate: 2 }}
         whileTap={{ scale: 0.95 }}
         onClick={toggleMenu}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 1.5 }}
       >
         Begin Your Journey
       </motion.button>

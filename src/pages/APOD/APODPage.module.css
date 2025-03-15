@@ -12,3 +12,8 @@
   margin: 110px 30px;
   font-size: 1.2rem;
 }
+
+.apodTitle {
+  margin-top: 80px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}

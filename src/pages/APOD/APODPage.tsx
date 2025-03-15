@@ -36,7 +36,7 @@ const APODPage: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <h1>Astronomy Picture of the Day</h1>
+      <h1 className={styles.apodTitle}>Astronomy Picture of the Day</h1>
       <APODCard data={apodData} />
     </motion.div>
   );
