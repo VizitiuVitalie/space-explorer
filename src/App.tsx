@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import HomePage from "./pages/Home/HomePage";
+import APODPage from "./pages/APOD/APODPage";
+import FavoritesPage from "./pages/Favorites/FavoritesPage";
+import MarsRoverPage from "./pages/MarsRover/MarsRoverPage";
+import styles from "./App.module.css";
+import DetailsPage from "./pages/Details/DetailsPage";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <div className={styles.content}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/apod" element={<APODPage />} />
+          <Route path="/details/:date" element={<DetailsPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/mars-rover" element={<MarsRoverPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

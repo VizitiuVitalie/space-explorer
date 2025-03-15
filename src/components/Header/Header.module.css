@@ -1,0 +1,138 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.23);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.logo img {
+  max-width: 50px;
+}
+
+.nav {
+  display: none;
+}
+
+.nav.open {
+  display: block;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9); /* Темный фон для выделения */
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navList li {
+  margin: 20px 0;
+}
+
+.navList a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.navList a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.navList a.active {
+  border-bottom: 4px solid white;
+  padding-bottom: 7px;
+}
+
+.menu {
+  display: block;
+}
+
+.menuButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.menuButton img {
+  width: 40px; /* Устанавливаем размер иконки бургера */
+  height: 40px;
+}
+
+.menuButton:hover {
+  background-color: transparent; /* Убираем фон при наведении */
+}
+
+@media (min-width: 866px) {
+  .menu {
+    display: none;
+  }
+  .nav {
+    display: block;
+  }
+  .navList {
+    flex-direction: row;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    background: transparent;
+  }
+  .navList li {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 990px) {
+  .navList a {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navList {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  .navList li {
+    margin: 20px 0;
+  }
+  .navList a {
+    font-size: 2rem;
+    padding: 10px 20px;
+  }
+}

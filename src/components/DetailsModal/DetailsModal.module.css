@@ -1,0 +1,35 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000; /* Увеличиваем z-index, чтобы модальное окно было выше Header */
+  }
+  
+  .modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 5001; /* Увеличиваем z-index, чтобы кнопка была выше модального окна */
+  }
+  
+  .closeButton:hover {
+    background: #ff1a1a;
+  }

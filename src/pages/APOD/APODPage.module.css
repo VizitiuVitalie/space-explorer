@@ -1,0 +1,19 @@
+.apodPage {
+  text-align: center;
+  padding: 2rem;
+  background: url('../../assets/apod-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.message {
+  margin: 110px 30px;
+  font-size: 1.2rem;
+}
+
+.apodTitle {
+  margin-top: 80px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}

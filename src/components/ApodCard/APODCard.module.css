@@ -1,0 +1,52 @@
+.card {
+  max-width: 600px;
+  margin: 2rem auto;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.content {
+  text-align: left;
+  padding: 0.5rem 0;
+}
+
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem; /* Добавляем отступ сверху */
+  display: block; /* Делаем кнопку блочным элементом */
+  width: fit-content; /* Устанавливаем ширину по содержимому */
+}
+
+.button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  transition: transform 0.1s ease;
+}
+
+.button:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}

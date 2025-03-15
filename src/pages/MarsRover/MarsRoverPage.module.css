@@ -1,0 +1,87 @@
+.container {
+  padding: 2rem;
+  text-align: center;
+  background: url("../../assets/marsrover-background.png") no-repeat center
+    center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.marsRoverTitle {
+  margin-top: 80px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.filters input,
+.filters select,
+.filters button {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+}
+
+.filters button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #0056b3;
+}
+
+.photosGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.photoCard {
+  margin: 1rem;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s;
+  width: 300px;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.photoCard img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.photoCard p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
