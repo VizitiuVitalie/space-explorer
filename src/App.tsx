@@ -5,8 +5,9 @@ import HomePage from "./pages/Home/HomePage";
 import APODPage from "./pages/APOD/APODPage";
 import FavoritesPage from "./pages/Favorites/FavoritesPage";
 import MarsRoverPage from "./pages/MarsRover/MarsRoverPage";
-import styles from "./App.module.css";
 import DetailsPage from "./pages/Details/DetailsPage";
+import Footer from "./components/Footer/Footer";
+import styles from "./App.module.css";
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           <Route path="/mars-rover" element={<MarsRoverPage />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 };

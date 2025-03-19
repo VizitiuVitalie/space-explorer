@@ -1,9 +1,9 @@
 .container {
   padding: 2rem;
   text-align: center;
-  background: url('../../assets/favorites-background.jpg') no-repeat center center fixed; /* Добавляем фон с изображением */
+  background: url('../../assets/favorites-background.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: 100vh; /* Устанавливаем минимальную высоту на 100% высоты экрана */
+  min-height: 100vh;
   color: white;
   border-radius: 8px;
   backdrop-filter: blur(10px);

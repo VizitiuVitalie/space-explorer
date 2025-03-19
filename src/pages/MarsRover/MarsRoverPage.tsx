@@ -178,7 +178,7 @@ const MarsRoverPage: React.FC = () => {
             ))}
           </select>
         </label>
-        <button onClick={() => handleFetchPhotos(true)}>Find photo</button>
+        <button onClick={() => handleFetchPhotos(true)}>Search</button>
       </div>
       {loading && photos.length === 0 && <p>Fetching...</p>}
       {error && <p>Error: {error}</p>}

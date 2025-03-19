@@ -18,8 +18,9 @@
   border-radius: 8px;
   padding: 2rem;
   margin: 5rem;
+  margin-top: 3rem;
   text-align: left;
-  max-width: 900px;
+  max-width: 950px;
   width: 100%;
   display: flex;
   flex-direction: row;

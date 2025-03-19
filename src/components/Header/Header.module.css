@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem; /* Сделаем хедер тоньше */
   z-index: 999;
   box-sizing: border-box;
 }
@@ -50,7 +50,7 @@
   color: #ffffff;
   font-weight: 600;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 10px 20px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
@@ -111,7 +111,7 @@
   }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1330px) {
   .navList a {
     font-size: 1.2rem;
     padding: 8px 16px;
@@ -119,6 +119,9 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem; /* Сделаем хедер тоньше для мобильных устройств */
+  }
   .navList {
     flex-direction: column;
     width: 100%;
@@ -126,7 +129,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgb(107, 94, 69);
   }
   .navList li {
     margin: 20px 0;
@@ -134,5 +137,25 @@
   .navList a {
     font-size: 2rem;
     padding: 10px 20px;
+  }
+}
+
+@media (max-width: 355px) {
+  .navList a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 240px) {
+  .navList a {
+    font-size: 0.7rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 165px) {
+  .navList a {
+    font-size: 0.4rem;
   }
 }

@@ -23,16 +23,16 @@ const APODCard: React.FC<APODCardProps> = ({ data }) => {
 
   return (
     <motion.div className={styles.card}>
-      <Link to={`/details/${data.date}`}>
+      <Link to={`/details/${data.date}`} className={styles.imageLink}>
         <img src={data.url} alt={data.title} className={styles.image} />
-        <div className={styles.content}>
-          <Link to={`/details/${data.date}`} className={styles.titleLink}>
-            <h2>{data.title}</h2>
-          </Link>
-          <p>{data.date}</p>
-          <p>{data.explanation.substring(0, 100)}...</p>
-        </div>
       </Link>
+      <div className={styles.content}>
+        <Link to={`/details/${data.date}`} className={styles.titleLink}>
+          <h2>{data.title}</h2>
+        </Link>
+        <p>{data.date}</p>
+        <p>{data.explanation.substring(0, 100)}...</p>
+      </div>
       <button className={styles.button} onClick={handleAddFavorite}>
         Add to favorites
       </button>
