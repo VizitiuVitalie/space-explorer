@@ -1,5 +1,5 @@
 body {
-  background-color: #111827; /* Темный фон для предотвращения яркой вспышки */
+  background-color: #111826; /* Темный фон для предотвращения яркой вспышки */
   color: white;
   transition: background-color 0.3s ease; /* Плавный переход фона */
 }

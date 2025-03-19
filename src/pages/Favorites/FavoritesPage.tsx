@@ -32,7 +32,7 @@ const FavoritesPage: React.FC = () => {
                 <p className={styles.date}>{fav.id}</p>
               </Link>
               <div className={styles.buttonContainer}>
-                <button onClick={() => removeFavorite(fav.id)}>Delete</button>
+                <button className={styles.deleteButton} onClick={() => removeFavorite(fav.id)}>Delete</button>
               </div>
             </motion.li>
           ))}

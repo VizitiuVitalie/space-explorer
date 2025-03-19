@@ -7,6 +7,7 @@ import {
 } from "../../services/nasaMarsRoverApi";
 import styles from "./MarsRoverPage.module.css";
 import MarsRoverModal from "../../components/MarsRoverModal/MarsRoverModal";
+import scrollUp from "../../assets/scroll-up.png";
 
 const curiosityCameras = [
   "fhaz",
@@ -30,11 +31,13 @@ const MarsRoverPage: React.FC = () => {
   const [photos, setPhotos] = useState<MarsRoverPhoto[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedPhoto, setSelectedPhoto] = useState<MarsRoverPhoto | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<MarsRoverPhoto | null>(
+    null
+  );
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [page, setPage] = useState<number>(1);
+  const [showScrollToTop, setShowScrollToTop] = useState<boolean>(false);
 
-  // Функция для загрузки фотографий в зависимости от режима поиска
   const handleFetchPhotos = async (reset: boolean = false) => {
     if (reset) {
       setPage(1);
@@ -66,16 +69,12 @@ const MarsRoverPage: React.FC = () => {
       setPhotos((prevPhotos) => [...prevPhotos, ...data]);
       setPage((prevPage) => prevPage + 1);
     } catch (error: any) {
-      setError(
-        error.message ||
-          "Something went wrong while fetching photos."
-      );
+      setError(error.message || "Something went wrong while fetching photos.");
     } finally {
       setLoading(false);
     }
   };
 
-  // Если режим поиска по sol, получаем maxSol из манифеста ровера
   useEffect(() => {
     if (searchMode === "sol") {
       const fetchMaxSolData = async () => {
@@ -125,7 +124,21 @@ const MarsRoverPage: React.FC = () => {
 
   const handleCloseModal = () => {
     setSelectedPhoto(null);
-    document.body.style.overflow = "auto"; // Включаем прокрутку страницы при закрытии модального окна
+    document.body.style.overflow = "auto";
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const shouldShow = window.scrollY > 300;
+      setShowScrollToTop(shouldShow);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -136,9 +149,7 @@ const MarsRoverPage: React.FC = () => {
           Search Mode:
           <select
             value={searchMode}
-            onChange={(e) =>
-              setSearchMode(e.target.value as "sol" | "earth")
-            }
+            onChange={(e) => setSearchMode(e.target.value as "sol" | "earth")}
           >
             <option value="sol">Martian Sol</option>
             <option value="earth">Earth Date</option>
@@ -192,7 +203,11 @@ const MarsRoverPage: React.FC = () => {
         >
           <div className={styles.photosGrid}>
             {photos.map((photo) => (
-              <div key={photo.id} className={styles.photoCard} onClick={() => handlePhotoClick(photo)}>
+              <div
+                key={photo.id}
+                className={styles.photoCard}
+                onClick={() => handlePhotoClick(photo)}
+              >
                 <img src={photo.img_src} alt={`Sol ${photo.sol}`} />
                 <p>{photo.earth_date}</p>
                 <p>{photo.camera.full_name}</p>
@@ -202,8 +217,22 @@ const MarsRoverPage: React.FC = () => {
         </InfiniteScroll>
       )}
       {selectedPhoto && (
-        <MarsRoverModal selectedPhoto={selectedPhoto} handleCloseModal={handleCloseModal} />
+        <MarsRoverModal
+          selectedPhoto={selectedPhoto}
+          handleCloseModal={handleCloseModal}
+        />
       )}
+      <div className={styles.stickyContainer}>
+        {showScrollToTop && (
+            <button
+            className={styles.scrollToTopButton}
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+            >
+            <img src={scrollUp} alt="Scroll to top" />
+            </button>
+        )}
+      </div>
     </div>
   );
 };

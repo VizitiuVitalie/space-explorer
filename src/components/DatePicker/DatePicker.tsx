@@ -9,8 +9,7 @@ const DatePicker: React.FC<DatePickerProps> = ({ onDateChange }) => {
   const [selectedDate, setSelectedDate] = useState<string>("");
 
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const date = event.target.value.split("-").reverse().join("/");
-    setSelectedDate(date);
+    setSelectedDate(event.target.value);
   };
 
   const handleSearchClick = () => {
