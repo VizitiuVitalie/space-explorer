@@ -10,7 +10,7 @@ Check out the live demo of the application [here](https://wizz-space-explorer.we
 ## Features
 
 - **Home Page**: Introduction to the application.
-- **APOD Page**: View the Astronomy Picture of the Day.
+- **APOD Page**: View the Astronomy Picture of the Day or search old APODs.
 - **Favorites Page**: Save and view your favorite photos.
 - **Mars Rover Photos**: Browse photos taken by the Mars Rover.
 - **Details Page**: View detailed information about a specific photo.
